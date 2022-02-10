@@ -16,9 +16,14 @@ public class GameController : MonoBehaviour
     private float countStart = 5;
     private bool started = false;
 
+    [SerializeField]
+    private Text hightScoreText;
+    [SerializeField]
+    private Score score;
+
     void Start()
     {
-        
+        hightScoreText.text = score.SearchHightScore().ToString();
     }
 
     void Update()

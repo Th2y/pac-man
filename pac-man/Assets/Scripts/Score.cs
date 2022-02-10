@@ -76,21 +76,6 @@ public class Score : MonoBehaviour
         return bestScores;
     }
 
-    private void AddEntrie(int score, string name)
-    {
-        ModelScore modelScore = new ModelScore { score = score, name = name };
-        
-        string jsonString = PlayerPrefs.GetString("scoreTable");
-        BestScores bestScores = JsonUtility.FromJson<BestScores>(jsonString);
-        bestScores.modelScoreList.Add(modelScore);
-
-        bestScores = OrdenateList(bestScores);
-        
-        string json = JsonUtility.ToJson(bestScores);
-        PlayerPrefs.SetString("scoreTable", json);
-        PlayerPrefs.Save();
-    }
-
     private void CreateEntries(ModelScore modelScore, Transform container, List<Transform> transformList)
     {
         Transform entryTransform = Instantiate(entryTemplate, container);
@@ -103,6 +88,32 @@ public class Score : MonoBehaviour
         entryTransform.Find("Score").GetComponent<Text>().text = modelScore.score.ToString();
         entryTransform.Find("Name").GetComponent<Text>().text = modelScore.name;
         transformList.Add(entryTransform);
+    }
+
+    public void AddEntrie(int score, string name)
+    {
+        ModelScore modelScore = new ModelScore { score = score, name = name };
+
+        string jsonString = PlayerPrefs.GetString("scoreTable");
+        BestScores bestScores = JsonUtility.FromJson<BestScores>(jsonString);
+        bestScores.modelScoreList.Add(modelScore);
+
+        bestScores = OrdenateList(bestScores);
+
+        string json = JsonUtility.ToJson(bestScores);
+        PlayerPrefs.SetString("scoreTable", json);
+        PlayerPrefs.Save();
+    }
+
+    public int SearchHightScore()
+    {
+        string jsonString = PlayerPrefs.GetString("scoreTable");
+        BestScores bestScores = JsonUtility.FromJson<BestScores>(jsonString);
+        if(bestScores.modelScoreList.Count > 0)
+        {
+            return bestScores.modelScoreList[0].score;
+        }
+        return 0;
     }
 
     private class BestScores

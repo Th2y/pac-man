@@ -1132,7 +1132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &835188276
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1568,6 +1568,8 @@ MonoBehaviour:
   panelUI: {fileID: 1669769108}
   panelEnd: {fileID: 1722967310}
   countStartText: {fileID: 773263074}
+  hightScoreText: {fileID: 491372569}
+  score: {fileID: 1400051245}
 --- !u!4 &1400051244
 Transform:
   m_ObjectHideFlags: 0
@@ -1731,7 +1733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1617633126
 RectTransform:
   m_ObjectHideFlags: 0
