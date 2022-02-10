@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,7 +16,25 @@ public class Score : MonoBehaviour
     void Awake()
     {
         entryTemplate.gameObject.SetActive(false);
-        /*modelScoreList = new List<ModelScore>()
+
+        if (!PlayerPrefs.HasKey("scoreTable"))
+        {
+            PopulateEmptyList();
+        }
+
+        string jsonString = PlayerPrefs.GetString("scoreTable");
+        BestScores bestScores = JsonUtility.FromJson<BestScores>(jsonString);
+
+        modelScoreTransformList = new List<Transform>();
+        foreach(ModelScore modelScore in bestScores.modelScoreList)
+        {
+            CreateEntries(modelScore, entryContainer, modelScoreTransformList);
+        }
+    }
+
+    private void PopulateEmptyList()
+    {
+        modelScoreList = new List<ModelScore>()
         {
             new ModelScore{ score = 1000, name = "Thay"},
             new ModelScore{ score = 2000, name = "Thay"},
@@ -28,34 +46,49 @@ public class Score : MonoBehaviour
             new ModelScore{ score = 5000, name = "Thay"},
             new ModelScore{ score = 7000, name = "Thay"},
             new ModelScore{ score = 9000, name = "Thay"},
-        };*/
-
-        string jsonString = PlayerPrefs.GetString("scoreTable");
-        BestScores bestScores = JsonUtility.FromJson<BestScores>(jsonString);
-
-        /*for (int i = 0; i < modelScoreList.Count; i++)
-        {
-            for (int j = i + 1; j < modelScoreList.Count; j++)
-            {
-                if(modelScoreList[j].score > modelScoreList[i].score)
-                {
-                    ModelScore model = modelScoreList[i];
-                    modelScoreList[i] = modelScoreList[j];
-                    modelScoreList[j] = model;
-                }
-            }
-        }*/
-
-        modelScoreTransformList = new List<Transform>();
-        foreach(ModelScore modelScore in bestScores.modelScoreList)
-        {
-            CreateEntries(modelScore, entryContainer, modelScoreTransformList);
-        }
-
-        /*BestScores bestScores = new BestScores { modelScoreList = modelScoreList };
+        };
+        BestScores bestScores = new BestScores { modelScoreList = modelScoreList };
+        bestScores = OrdenateList(bestScores);
         string json = JsonUtility.ToJson(bestScores);
         PlayerPrefs.SetString("scoreTable", json);
-        PlayerPrefs.Save();*/
+        PlayerPrefs.Save();
+    }
+
+    private BestScores OrdenateList(BestScores bestScores)
+    {
+        for (int i = 0; i < bestScores.modelScoreList.Count; i++)
+        {
+            for (int j = i + 1; j < bestScores.modelScoreList.Count; j++)
+            {
+                if (bestScores.modelScoreList[j].score > bestScores.modelScoreList[i].score)
+                {
+                    ModelScore model = bestScores.modelScoreList[i];
+                    bestScores.modelScoreList[i] = bestScores.modelScoreList[j];
+                    bestScores.modelScoreList[j] = model;
+                }
+            }
+        }
+
+        if (bestScores.modelScoreList.Count > 10)
+        {
+            bestScores.modelScoreList.RemoveAt(10);
+        }
+        return bestScores;
+    }
+
+    private void AddEntrie(int score, string name)
+    {
+        ModelScore modelScore = new ModelScore { score = score, name = name };
+        
+        string jsonString = PlayerPrefs.GetString("scoreTable");
+        BestScores bestScores = JsonUtility.FromJson<BestScores>(jsonString);
+        bestScores.modelScoreList.Add(modelScore);
+
+        bestScores = OrdenateList(bestScores);
+        
+        string json = JsonUtility.ToJson(bestScores);
+        PlayerPrefs.SetString("scoreTable", json);
+        PlayerPrefs.Save();
     }
 
     private void CreateEntries(ModelScore modelScore, Transform container, List<Transform> transformList)
@@ -66,7 +99,7 @@ public class Score : MonoBehaviour
         entryTransform.gameObject.SetActive(true);
 
         int posRank = transformList.Count + 1;
-        entryTransform.Find("Position").GetComponent<Text>().text = posRank + "º";
+        entryTransform.Find("Position").GetComponent<Text>().text = posRank + "ï¿½";
         entryTransform.Find("Score").GetComponent<Text>().text = modelScore.score.ToString();
         entryTransform.Find("Name").GetComponent<Text>().text = modelScore.name;
         transformList.Add(entryTransform);
