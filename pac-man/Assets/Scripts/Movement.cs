@@ -15,12 +15,14 @@ public class Movement : MonoBehaviour
     public Vector2 nextDirection;
     [SerializeField]
     private Vector3 startingPosition;
+    private GameController controller;
     
     void Start()
     {
-        Debug.Log(gameObject.name + " " + gameObject.transform.position);
-        //startingPosition = gameObject.transform.position;
-        ResetState();
+        controller = FindObjectOfType<GameController>();
+        direction = initialDirection;
+        nextDirection = Vector2.zero;
+        enabled = true;
     }
 
     public void ResetState()
@@ -34,7 +36,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        if (nextDirection != Vector2.zero)
+        if (nextDirection != Vector2.zero && controller.started)
         {
             ChangeDirection(nextDirection);
         }

@@ -19,9 +19,9 @@ public class GhostHome : GhostBehavior
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (enabled && collision.gameObject.layer == LayerMask.NameToLayer("Obstacle")) {
+        if (enabled && collision.gameObject.tag == "Obstacle") {
             ghost.movement.ChangeDirection(-ghost.movement.direction);
         }
     }

@@ -20,7 +20,7 @@ public class GhostChase : GhostBehavior
 
             foreach (Vector2 availableDirection in node.availableDirections)
             {
-                Vector3 newPosition = transform.position + new Vector3(availableDirection.x, availableDirection.y);
+                Vector3 newPosition = transform.position + new Vector3(availableDirection.x, availableDirection.y, gameObject.transform.position.z);
                 float distance = (ghost.target.position - newPosition).sqrMagnitude;
 
                 if (distance < minDistance)

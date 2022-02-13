@@ -19,7 +19,6 @@ public class Ghost : MonoBehaviour
     void Start()
     {
         gameController = FindObjectOfType<GameController>();
-        ResetState();
     }
 
     public void ResetState()
@@ -54,10 +53,10 @@ public class Ghost : MonoBehaviour
             {
                 gameController.GhostEaten(this);
             } 
-            else {
+            else 
+            {
                 gameController.LoseLife();
             }
         }
     }
-
 }

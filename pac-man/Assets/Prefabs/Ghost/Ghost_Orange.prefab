@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22402e65668be34a88c78572a2b5d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghost: {fileID: 9061468513120183919}
   duration: 20
 --- !u!114 &9061468513120183913
 MonoBehaviour:
@@ -146,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58196e8602b78a143a00dbe8266722bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghost: {fileID: 9061468513120183919}
   duration: 8
   body: {fileID: 9061468513194012030}
   eyes: {fileID: 9061468513361679229}
@@ -164,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb3c945b148b30a488706d419962aa85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghost: {fileID: 9061468513120183919}
   duration: 16
   inside: {fileID: 0}
   outside: {fileID: 0}
@@ -179,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d6531ff1d50f04d911170c780e9184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghost: {fileID: 9061468513120183919}
   duration: 7
 --- !u!1 &9061468513124089277
 GameObject:
