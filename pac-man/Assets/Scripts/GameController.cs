@@ -42,9 +42,9 @@ public class GameController : MonoBehaviour
 
     private int pelletsLength;
 
-
     void Start()
     {
+        Time.timeScale = 1f;
         pelletsLength = FindObjectsOfType<Pellet>().Length;
         hightScoreText.text = scores.SearchHightScore().ToString();
         lifeText.text = lifes.ToString();
@@ -81,6 +81,16 @@ public class GameController : MonoBehaviour
             started = true;
             pacman.started = true;
         }
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void PauseNotGame()
+    {
+        Time.timeScale = 1f;
     }
 
     public void EndGame()

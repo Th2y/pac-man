@@ -15,11 +15,17 @@ public class Pacman : MonoBehaviour
     private Animator animator;
 
     public bool started = false;
+    private bool startedAnim = false;
     
     void Update()
     {
         if (started)
         {
+            if (!startedAnim)
+            {
+                startedAnim = true;
+                animator.SetBool("started", true);
+            }
             ChangeDirection();
         }        
     }
