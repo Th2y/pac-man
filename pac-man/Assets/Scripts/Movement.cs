@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour
     
     void Start()
     {
-        Debug.Log(gameObject.name + gameObject.transform.position);
+        Debug.Log(gameObject.name + " " + gameObject.transform.position);
         //startingPosition = gameObject.transform.position;
         ResetState();
     }

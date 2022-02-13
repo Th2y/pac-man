@@ -8,22 +8,25 @@ public class VolumeControl : MonoBehaviour
     float volumeEffects, volumeMusics;
     public Slider sliderEffects, sliderMusics;
 
-    void Start()
+    public void DefineSliders()
     {
         if (!PlayerPrefs.HasKey("Effects"))
             sliderEffects.value = 1;
         else
             sliderEffects.value = PlayerPrefs.GetFloat("Effects");
 
-        if (!PlayerPrefs.HasKey("Musicas"))
+        if (!PlayerPrefs.HasKey("Musics"))
             sliderMusics.value = 1;
         else
             sliderMusics.value = PlayerPrefs.GetFloat("Musics");
+
+        VolumeEffects();
+        VolumeMusicas();
     }
 
-    public void VolumeEffects(float volume)
+    public void VolumeEffects()
     {
-        volumeEffects = volume;
+        volumeEffects = sliderEffects.value;
         GameObject[] effect = GameObject.FindGameObjectsWithTag("Effects");
         if (effect.Length > 0)
         {
@@ -36,9 +39,9 @@ public class VolumeControl : MonoBehaviour
         PlayerPrefs.SetFloat("Effects", volumeEffects);
     }
 
-    public void VolumeMusicas(float volume)
+    public void VolumeMusicas()
     {
-        volumeMusics = volume;
+        volumeMusics = sliderMusics.value;
         GameObject[] music = GameObject.FindGameObjectsWithTag("Musics");
         if (music.Length > 0)
         {

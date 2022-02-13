@@ -42,12 +42,16 @@ public class GameController : MonoBehaviour
 
     private int pelletsLength;
 
+    [SerializeField]
+    private VolumeControl volumeControl;
+
     void Start()
     {
         Time.timeScale = 1f;
         pelletsLength = FindObjectsOfType<Pellet>().Length;
         hightScoreText.text = scores.SearchHightScore().ToString();
         lifeText.text = lifes.ToString();
+        volumeControl.DefineSliders();
     }
 
     void Update()
