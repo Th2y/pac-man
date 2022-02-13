@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Musics
   - Effects
+  - Pallet
+  - Ghost
   layers:
   - Default
   - TransparentFX
