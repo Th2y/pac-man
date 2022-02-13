@@ -52,6 +52,7 @@ public class GameController : MonoBehaviour
         hightScoreText.text = scores.SearchHightScore().ToString();
         lifeText.text = lifes.ToString();
         volumeControl.DefineSliders();
+        ResetState();
     }
 
     void Update()

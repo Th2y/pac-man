@@ -59,7 +59,7 @@ public class Pacman : MonoBehaviour
         spriteRenderer.enabled = true;
         colliderPacman.enabled = true;
         animator.SetBool("isDie", false);
-        spriteRenderer.enabled = false;
+        animator.SetBool("started", true);
         movement.ResetState();
         gameObject.SetActive(true);
     }
