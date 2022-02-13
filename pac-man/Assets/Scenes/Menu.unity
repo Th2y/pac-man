@@ -212,6 +212,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 702068164711810310, guid: 0891f897ce8a7c6499bebe26e097e7f2, type: 3}
   m_PrefabInstance: {fileID: 702068164718058810}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &65230909 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2664785769298606777, guid: 0891f897ce8a7c6499bebe26e097e7f2, type: 3}
+  m_PrefabInstance: {fileID: 702068164718058810}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65230907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d873ff3375ad0ce438d7111070d6e9e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &315406393
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,6 +978,7 @@ GameObject:
   - component: {fileID: 1400051244}
   - component: {fileID: 1400051245}
   - component: {fileID: 1400051243}
+  - component: {fileID: 1400051246}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1015,6 +1027,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entryContainer: {fileID: 753222053}
   entryTemplate: {fileID: 1875497742}
+--- !u!114 &1400051246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400051242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b3ce6e50ebca444a1a5a1d0dadf792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeControl: {fileID: 65230909}
 --- !u!1 &1534088713 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6187619889668500469, guid: c2b7cb268389a69419a6c4f8b808dd0f, type: 3}
@@ -1665,6 +1690,62 @@ PrefabInstance:
     - target: {fileID: 702068164711810310, guid: 0891f897ce8a7c6499bebe26e097e7f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 702068164742214297, guid: 0891f897ce8a7c6499bebe26e097e7f2, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 702068164742214297, guid: 0891f897ce8a7c6499bebe26e097e7f2, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 702068164742214297, guid: 0891f897ce8a7c6499bebe26e097e7f2, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 65230909}
+    - target: {fileID: 702068164742214297, guid: 0891f897ce8a7c6499bebe26e097e7f2, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 702068164742214297, guid: 0891f897ce8a7c6499bebe26e097e7f2, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: VolumeEffects
+      objectReference: {fileID: 0}
+    - target: {fileID: 702068164742214297, guid: 0891f897ce8a7c6499bebe26e097e7f2, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VolumeControl, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 702068164742214297, guid: 0891f897ce8a7c6499bebe26e097e7f2, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 702068165120886941, guid: 0891f897ce8a7c6499bebe26e097e7f2, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 702068165120886941, guid: 0891f897ce8a7c6499bebe26e097e7f2, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 702068165120886941, guid: 0891f897ce8a7c6499bebe26e097e7f2, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 65230909}
+    - target: {fileID: 702068165120886941, guid: 0891f897ce8a7c6499bebe26e097e7f2, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 702068165120886941, guid: 0891f897ce8a7c6499bebe26e097e7f2, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: VolumeMusicas
+      objectReference: {fileID: 0}
+    - target: {fileID: 702068165120886941, guid: 0891f897ce8a7c6499bebe26e097e7f2, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VolumeControl, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 702068165120886941, guid: 0891f897ce8a7c6499bebe26e097e7f2, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0891f897ce8a7c6499bebe26e097e7f2, type: 3}
