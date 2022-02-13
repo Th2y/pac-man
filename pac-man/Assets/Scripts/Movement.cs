@@ -10,14 +10,16 @@ public class Movement : MonoBehaviour
     public Vector2 initialDirection;
     public LayerMask obstacleLayer;
 
-    public Rigidbody2D rigidbody2D;
+    public Rigidbody2D rigidbodyMove;
     public Vector2 direction;
     public Vector2 nextDirection;
+    [SerializeField]
     private Vector3 startingPosition;
     
     void Start()
     {
-        startingPosition = gameObject.transform.position;
+        Debug.Log(gameObject.name + gameObject.transform.position);
+        //startingPosition = gameObject.transform.position;
         ResetState();
     }
 
@@ -40,10 +42,10 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 position = rigidbody2D.position;
+        Vector2 position = rigidbodyMove.position;
         Vector2 translation = direction * speed * speedMultiplier * Time.fixedDeltaTime;
 
-        rigidbody2D.MovePosition(position + translation);
+        rigidbodyMove.MovePosition(position + translation);
     }
 
     public void ChangeDirection(Vector2 direction, bool forced = false)

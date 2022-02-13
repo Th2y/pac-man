@@ -10,6 +10,7 @@ public class Ghost : MonoBehaviour
     public GhostScatter scatter;
     public GhostChase chase;
     public GhostFrightened frightened;
+    [SerializeField]
     private GhostBehavior initialBehavior;
     public Transform target;
     public int points = 200;

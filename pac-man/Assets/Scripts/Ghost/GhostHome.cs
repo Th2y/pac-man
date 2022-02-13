@@ -29,7 +29,6 @@ public class GhostHome : GhostBehavior
     private IEnumerator ExitTransition()
     {
         ghost.movement.ChangeDirection(Vector2.up, true);
-        ghost.movement.GetComponent<Rigidbody>().isKinematic = true;
         ghost.movement.enabled = false;
 
         Vector3 position = transform.position;
@@ -54,8 +53,6 @@ public class GhostHome : GhostBehavior
         }
 
         ghost.movement.ChangeDirection(new Vector2(Random.value < 0.5f ? -1f : 1f, 0f), true);
-        ghost.movement.GetComponent<Rigidbody>().isKinematic = false;
         ghost.movement.enabled = true;
     }
-
 }
