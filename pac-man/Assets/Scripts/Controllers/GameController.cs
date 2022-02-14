@@ -44,6 +44,12 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     private VolumeControl volumeControl;
+    [SerializeField]
+    private AudioSource startEffect;
+    [SerializeField]
+    private AudioSource eatFruitEffect;
+    [SerializeField]
+    private AudioSource eatGhostEffect;
 
     void Start()
     {
@@ -85,6 +91,7 @@ public class GameController : MonoBehaviour
             panelUI.SetActive(true);
             started = true;
             pacman.started = true;
+            startEffect.Play();
         }
     }
 
@@ -151,6 +158,7 @@ public class GameController : MonoBehaviour
 
     public void GhostEaten(Ghost ghost)
     {
+        eatGhostEffect.Play();
         int points = ghost.points * ghostMultiplier;
         DefineScore(points);
         ghostMultiplier++;
@@ -158,6 +166,7 @@ public class GameController : MonoBehaviour
 
     public void PelletEaten(Pellet pellet)
     {
+        eatFruitEffect.Play();
         pelletsLength--;
         Destroy(pellet.gameObject);
         DefineScore(pellet.points);
