@@ -29,5 +29,4 @@ public class GhostScatter : GhostBehavior
             ghost.movement.ChangeDirection(node.availableDirections[index]);
         }
     }
-
 }

@@ -6,7 +6,7 @@ public abstract class GhostBehavior : MonoBehaviour
     public Ghost ghost;
     public float duration;
 
-    private void Awake()
+    void Awake()
     {
         ghost = GetComponent<Ghost>();
     }

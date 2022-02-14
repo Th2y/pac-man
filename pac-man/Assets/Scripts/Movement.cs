@@ -44,10 +44,13 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 position = rigidbodyMove.position;
-        Vector2 translation = direction * speed * speedMultiplier * Time.fixedDeltaTime;
+        if (controller.started)
+        {
+            Vector2 position = rigidbodyMove.position;
+            Vector2 translation = direction * speed * speedMultiplier * Time.fixedDeltaTime;
 
-        rigidbodyMove.MovePosition(position + translation);
+            rigidbodyMove.MovePosition(position + translation);
+        }
     }
 
     public void ChangeDirection(Vector2 direction, bool forced = false)
