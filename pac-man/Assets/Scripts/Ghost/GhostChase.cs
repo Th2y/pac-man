@@ -18,7 +18,6 @@ public class GhostChase : GhostBehavior
             Vector2 direction = Vector2.zero;
             float minDistance = float.MaxValue;
 
-            Debug.Log("Cha " + gameObject.name + " " + node.availableDirections.Count);
             foreach (Vector2 availableDirection in node.availableDirections)
             {
                 Vector3 newPosition = transform.position + new Vector3(availableDirection.x, availableDirection.y, gameObject.transform.position.z);
